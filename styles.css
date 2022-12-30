@@ -1,0 +1,107 @@
+body {
+    margin: 0;
+    background-color: #ABA19F;
+}
+
+.border-container {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 600px;
+    width: 400px;
+    background-color: #CAC2C1;
+    border-radius: 25px;
+}
+
+.calculator-container {
+    display: flex;
+    flex-direction: column;
+    height: 575px;
+    width: 375px;
+    padding: 5px;
+    margin: auto;
+    border-radius: 25px;
+    background-color: #7A7675;
+    align-self: center;
+    justify-self: center;
+    
+}
+
+.solar {
+    display: flex;
+    height: 60px;
+    width: 150px;
+    background-color: #575352;
+    margin: 20px;
+    border-radius: 10px;
+    align-self: flex-end;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    background-color: #CAC2C1;
+    width: 340px;
+    height: 100px;
+    margin-top: 15px;
+    border-radius: 20px;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.display p {
+    margin: 10px;
+    font-size: x-large;
+}
+
+.display #top {
+    align-self: flex-end;
+}
+
+.display #bottom {
+    align-self: flex-end;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 0;
+    gap: 5px;
+    align-self: center;
+    justify-self: center;
+    margin: auto;
+}
+
+.btn {
+    border-radius: 5px;
+}
+
+.btn.number,
+#last {
+    background-color: #ABA19F;
+    border: 0;
+    width: 60px;
+    height: 60px;
+}
+
+.btn.number:hover,
+#last:hover {
+    background-color: #A29897;
+}
+
+.btn.operator {
+    background-color: #575352;
+    border: 0;
+}
+
+#last {
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+#dot {
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
