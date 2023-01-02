@@ -1,2 +1,2 @@
 # Calculator
-With this calculator you'll be able to do various math operations! This calculator is used exactly the same as similiar calculators.
+With this calculator you'll be able to do various math operations! Feel free to use your keyboard or your mouse to get going!
