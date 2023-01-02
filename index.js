@@ -54,6 +54,16 @@ function setNumbers(e) {
     return e.key >= 0 && e.key <= 9 ? displaybottom.textContent += `${e.key}` : displaybottom.textContent += `${e.textContent}`;
 }
 
+function checkForNums() {
+    let operation = [];
+    let withNum;
+    if (displaytop.textContent !== "" && displaybottom.textContent !== "") {
+        operation = displaytop.textContent.split(" ");
+        withNum = displaybottom.textContent;
+        return operate(operation[1], operation[0], withNum);
+    }
+}
+
 function getPartResult(e) {
     let type;
     let keyPress;
@@ -72,30 +82,23 @@ function getPartResult(e) {
 
     result = checkForNums();
     if (result === null && parseInt(displaytop.textContent) === "0" && (keyPress === "÷" || e.textContent === "÷")) {
-        alert("Hey, you! You can't divide by zero!");
+        alert("Hey, you! You can't divide by zero!");    
     } else if (displaytop.textContent.includes("=")) {
         content = displaytop.textContent.split(" ");
         displaytop.textContent = type === "button" ? `${content[content.length - 1]} ${e.textContent}` : `${content[content.length - 1]} ${keyPress}`;
         displaybottom.textContent = "";
-    } else if (displaybottom.textContent !== "") {
+    } else if (result !== null && result !== undefined) {
+        displaytop.textContent = `${result} ${e.textContent}`;
+        displaybottom.textContent = "";
+    } 
+    else if (displaybottom.textContent !== "") {
         displaytop.textContent = type === "button" ? `${displaybottom.textContent} ${e.textContent}` : `${displaybottom.textContent} ${keyPress}`;
         displaybottom.textContent = "";
-    } else {
+    }  else {
         content = displaytop.textContent.split(" ");
         content[1] = type === "button" ? e.textContent : keyPress;
         displaytop.textContent = content.join(" ");
     }
-}
-
-function checkForNums() {
-    let operation = [];
-    let withNum;
-    if (displaytop.textContent !== "" && displaybottom.textContent !== "") {
-        operation = displaytop.textContent.split(" ");
-        withNum = displaybottom.textContent;
-        return operate(operation[1], operation[0], withNum);
-    }
-    return null;
 }
 
 function appendPoint() {
