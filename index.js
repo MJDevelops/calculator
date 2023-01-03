@@ -17,7 +17,7 @@ buttons.forEach(button => {
     button.addEventListener('click', (e) => {
         if (e.target.className === "btn number" || e.target.id === "last") {
             setNumbers(e.target);
-        } else if (e.target.className === "btn operator" && displaybottom.textContent !== "") {
+        } else if (e.target.className === "btn operator" && displaybottom.textContent !== "" || displaytop.textContent.includes("=")) {
            getPartResult(e.target);
         } else if (e.target.id === "dot") {
             appendPoint();
@@ -34,7 +34,7 @@ buttons.forEach(button => {
 });
 
 document.addEventListener('keyup', (e) => {
-    if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "*" && displaybottom.textContent !== "") {
+    if (e.key === "+" || e.key === "-" || e.key === "/" || e.key === "*" && (displaybottom.textContent !== "" || displaytop.textContent.includes("="))) {
         getPartResult(e);
     } else if (e.key >= 0 && e.key <= 9) {
         setNumbers(e);
