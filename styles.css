@@ -87,7 +87,8 @@ body {
 }
 
 .btn.number,
-#last {
+#last,
+#switch {
     height: 60px;
     background-color: #ABA19F;
     border: 0;
@@ -95,7 +96,8 @@ body {
 
 
 .btn.number:hover,
-#last:hover {
+#last:hover,
+#switch:hover {
     background-color: #A29897;
 }
 
@@ -104,9 +106,10 @@ body {
     border: 0;
 }
 
+
 #last {
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 3;
 }
 
 .btn.del {
@@ -125,6 +128,12 @@ body {
     background-color: #8585CC;
 }
 
+#dot,
+#equal {
+    background-color: #575352;
+}
+
+.btn.operator:hover,
 #dot:hover,
 #equal:hover {
     background-color: #D7D7D7;

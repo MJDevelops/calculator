@@ -2,6 +2,8 @@ const gridcont = document.querySelector('.btn-grid');
 const buttons = gridcont.querySelectorAll('button');
 const displaytop = document.getElementById('top');
 const displaybottom = document.getElementById('bottom');
+const switchz = document.getElementById('switch');
+
 
 buttons.forEach(button => {
     button.classList.add('btn');
@@ -24,12 +26,20 @@ buttons.forEach(button => {
         } else if (e.target.className === "btn del") {
             removeLast();
         } else if (e.target.className === "btn ac") {
-            displaytop.textContent = "";
-            displaybottom.textContent = "";
+            removeContent();
         } 
         else if (e.target.id === "equal") {
             completeResult();
-        }
+        } else if (e.target.id === "switch") {
+            content = displaybottom.textContent.split("");
+            if (displaybottom.textContent.includes("-")) {
+                content[0] = "";
+                displaybottom.textContent = content.join("");
+            } else {
+                content.splice(0, 0, "-");
+                displaybottom.textContent = content.join("");
+            }
+        } 
     });
 });
 
@@ -113,6 +123,11 @@ function removeLast() {
         content.pop();
         displaybottom.textContent = content.join("");
     }
+}
+
+function removeContent() {
+    displaytop.textContent = "";
+    displaybottom.textContent = "";
 }
 
 function completeResult() {
